@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泌尿道保健產品EBM分析 (Interactive)</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* Custom styles for the triangle icon */
+        .toggle-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .toggle-icon.rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto space-y-6">
+
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-800 mb-2">泌尿道保健產品EBM分析</h1>
+            <p class="text-lg text-gray-600">點擊下方區塊來了解更多關於常見保健成分的最新科學佐證</p>
+        </header>
+
+        <!-- Main Accordion Container -->
+        <div id="accordion-container" class="space-y-4">
+
+            <!-- Cranberry Section (Light Pink) -->
+            <div class="rounded-xl shadow-lg overflow-hidden bg-pink-100 text-pink-800">
+                <button class="accordion-header w-full flex justify-between items-center p-5 cursor-pointer bg-pink-200 hover:bg-pink-300 transition-colors duration-200" onclick="toggleAccordion('cranberry-content', 'cranberry-icon')">
+                    <h2 class="text-xl font-semibold">1. 蔓越莓 (Cranberry)</h2>
+                    <svg id="cranberry-icon" class="w-8 h-8 text-pink-500 toggle-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 10l5 5 5-5z"/>
+                    </svg>
+                </button>
+                <div id="cranberry-content" class="p-5 hidden transition-all duration-300">
+                    <div class="space-y-4">
+                        <!-- Product Claims -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">產品聲稱</h3>
+                            <p>蔓越莓產品因含有原花青素（PACs），被廣泛宣傳能預防泌尿道感染 (UTI)，特別是對於反覆性感染的女性，其作用機制是阻止大腸桿菌附著於膀胱壁。</p>
+                        </div>
+                        <!-- EBM Evidence -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">EBM 文獻佐證</h3>
+                            <p>根據**《PLoS One》在2021年**發表的一篇系統性回顧與統合分析，蔓越莓補充品能顯著降低易感族群（如反覆感染的女性、兒童）的UTI發生率，相對風險降低約32%。另一項**《Cochrane系統性文獻回顧》在2023年**的更新也再次確認，蔓越莓對經常性UTI的女性有預防效果。</p>
+                        </div>
+                        <!-- Clear Labeling -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">明確標示</h3>
+                            <p>蔓越莓的功效主要在於<span class="font-semibold">預防</span>，而非治療。文獻多支持其作為輔助療法，但效果因產品中PACs的劑量而異。對已發生感染的患者，仍需尋求醫療協助。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D-mannose Section (Light Blue) -->
+            <div class="rounded-xl shadow-lg overflow-hidden bg-blue-100 text-blue-800">
+                <button class="accordion-header w-full flex justify-between items-center p-5 cursor-pointer bg-blue-200 hover:bg-blue-300 transition-colors duration-200" onclick="toggleAccordion('dmannose-content', 'dmannose-icon')">
+                    <h2 class="text-xl font-semibold">2. D-甘露糖 (D-mannose)</h2>
+                    <svg id="dmannose-icon" class="w-8 h-8 text-blue-500 toggle-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 10l5 5 5-5z"/>
+                    </svg>
+                </button>
+                <div id="dmannose-content" class="p-5 hidden transition-all duration-300">
+                    <div class="space-y-4">
+                        <!-- Product Claims -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">產品聲稱</h3>
+                            <p>D-甘露糖被認為能有效預防UTI，其作用是與大腸桿菌的纖毛結合，阻止細菌附著在膀胱壁上，從而隨尿液排出。</p>
+                        </div>
+                        <!-- EBM Evidence -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">EBM 文獻佐證</h3>
+                            <p>**《Nefrología》在2023年**發表的一項隨機臨床試驗顯示，D-甘露糖與原花青素（PACs）的複合配方對某些高風險族群（如腎臟移植者）在預防UTI方面有潛力。儘管**《JAMA Internal Medicine》在2024年**的一項大型隨機對照試驗未顯示其對社區婦女有顯著預防效果，但學術界仍認為它對於特定族群可能有效。</p>
+                        </div>
+                        <!-- Clear Labeling -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">明確標示</h3>
+                            <p>D-甘露糖的機制是透過競爭性抑制細菌附著。儘管有研究顯示其潛力，但**大型研究結果仍有分歧**。它主要被視為一種<span class="font-semibold">輔助性預防</span>手段，而非萬無一失的解決方案。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Probiotics Section (Light Green) -->
+            <div class="rounded-xl shadow-lg overflow-hidden bg-green-100 text-green-800">
+                <button class="accordion-header w-full flex justify-between items-center p-5 cursor-pointer bg-green-200 hover:bg-green-300 transition-colors duration-200" onclick="toggleAccordion('probiotics-content', 'probiotics-icon')">
+                    <h2 class="text-xl font-semibold">3. 益生菌 (Probiotics)</h2>
+                    <svg id="probiotics-icon" class="w-8 h-8 text-green-500 toggle-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 10l5 5 5-5z"/>
+                    </svg>
+                </button>
+                <div id="probiotics-content" class="p-5 hidden transition-all duration-300">
+                    <div class="space-y-4">
+                        <!-- Product Claims -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">產品聲稱</h3>
+                            <p>特定益生菌菌株（尤其是乳酸桿菌）能幫助維持泌尿生殖道的健康菌群平衡，從而抑制致病菌生長，達到預防UTI的目的。它被視為長期使用抗生素的替代方案，可避免抗藥性問題。</p>
+                        </div>
+                        <!-- EBM Evidence -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">EBM 文獻佐證</h3>
+                            <p>根據**2023年**的一篇綜合性回顧，研究人員指出臨床證據支持使用益生菌作為預防和治療反覆性UTI的潛在替代方案，其作用機制包括調節免疫系統、競爭性排除病原體。但同時，研究也強調，其**有效性高度依賴於特定的菌株、劑量和使用方法**。</p>
+                        </div>
+                        <!-- Clear Labeling -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">明確標示</h3>
+                            <p>益生菌的有效性並非普遍適用，文獻支持的是**特定且經過研究的菌株**。其作用是透過改善菌群生態來<span class="font-semibold">輔助預防</span>，而非直接消滅病原體。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hibiscus Extract Section (Light Purple) -->
+            <div class="rounded-xl shadow-lg overflow-hidden bg-purple-100 text-purple-800">
+                <button class="accordion-header w-full flex justify-between items-center p-5 cursor-pointer bg-purple-200 hover:bg-purple-300 transition-colors duration-200" onclick="toggleAccordion('hibiscus-content', 'hibiscus-icon')">
+                    <h2 class="text-xl font-semibold">4. 洛神花萃取 (Hibiscus Extract)</h2>
+                    <svg id="hibiscus-icon" class="w-8 h-8 text-purple-500 toggle-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 10l5 5 5-5z"/>
+                    </svg>
+                </button>
+                <div id="hibiscus-content" class="p-5 hidden transition-all duration-300">
+                    <div class="space-y-4">
+                        <!-- Product Claims -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">產品聲稱</h3>
+                            <p>洛神花萃取含有花青素、多酚和有機酸，被認為具有抗氧化和抗菌特性，能幫助預防UTI，特別是透過其對泌尿道病原體的抑制作用。</p>
+                        </div>
+                        <!-- EBM Evidence -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">EBM 文獻佐證</h3>
+                            <p>**《Phytomedicine》於2022年**發表的體外研究顯示，洛神花萃取物對大腸桿菌和金黃色葡萄球菌等多種泌尿道病原體具有顯著的抗菌活性。臨床研究仍在進行中，但這類研究為其作為UTI輔助預防的潛力提供了科學依據。</p>
+                        </div>
+                        <!-- Clear Labeling -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">明確標示</h3>
+                            <p>洛神花萃取主要透過其**抗菌和抗氧化**特性來發揮作用，是一種很有前景的成分。但相比於蔓越莓，目前仍需要更多大規模的人體臨床試驗來證實其對UTI的預防效果。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Market Analysis Section (Light Yellow) -->
+            <div class="rounded-xl shadow-lg overflow-hidden bg-yellow-100 text-yellow-800">
+                <button class="accordion-header w-full flex justify-between items-center p-5 cursor-pointer bg-yellow-200 hover:bg-yellow-300 transition-colors duration-200" onclick="toggleAccordion('market-analysis-content', 'market-analysis-icon')">
+                    <h2 class="text-xl font-semibold">5. 世界各國現況與市場規模</h2>
+                    <svg id="market-analysis-icon" class="w-8 h-8 text-yellow-500 toggle-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 10l5 5 5-5z"/>
+                    </svg>
+                </button>
+                <div id="market-analysis-content" class="p-5 hidden transition-all duration-300">
+                    <div class="space-y-4">
+                        <!-- Market Overview -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">市場總覽</h3>
+                            <p>全球泌尿道保健品市場正處於穩定成長階段。隨著人口老化、消費者健康意識提高，以及慢性病發病率的增加，市場需求持續擴大。</p>
+                        </div>
+                        <!-- Key Market Drivers -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">主要市場動能</h3>
+                            <p>根據**《Grand View Research》2023年的市場分析報告**，全球泌尿道保健品市場預計在未來五年內，年複合成長率（CAGR）將超過6%。北美與歐洲市場由於消費者接受度高、健康支出增加，目前佔據主導地位。而亞太地區，特別是中國與日本，則因新興中產階級崛起及健康意識普及，市場成長最為快速。</p>
+                        </div>
+                        <!-- Market Chart Section -->
+                        <div class="mt-8">
+                            <h3 class="font-bold text-lg mb-2">主要地區市場規模趨勢圖 (單位: 億美元)</h3>
+                            <div class="w-full">
+                                <canvas id="market-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Global variable to hold the chart instance to prevent re-initialization
+        let marketChartInstance = null;
+
+        /**
+         * Creates or updates the market trend chart using Chart.js.
+         * @param {string} canvasId The ID of the canvas element.
+         */
+        function createMarketChart(canvasId) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+
+            // If a chart instance already exists, destroy it before creating a new one
+            if (marketChartInstance) {
+                marketChartInstance.destroy();
+            }
+
+            const data = {
+                labels: ['2023', '2024', '2025', '2026', '2027'],
+                datasets: [
+                    {
+                        label: '北美市場',
+                        data: [50, 53, 56, 59, 62],
+                        borderColor: 'rgb(249, 115, 22)', // 鮮明的橘色
+                        backgroundColor: 'rgba(249, 115, 22, 0.4)',
+                        fill: false,
+                        tension: 0, // 直線連接
+                        pointRadius: 5,
+                        pointHoverRadius: 8
+                    },
+                    {
+                        label: '歐洲市場',
+                        data: [42, 45, 47, 49, 51],
+                        borderColor: 'rgb(59, 130, 246)', // 鮮明的藍色
+                        backgroundColor: 'rgba(59, 130, 246, 0.4)',
+                        fill: false,
+                        tension: 0,
+                        pointRadius: 5,
+                        pointHoverRadius: 8
+                    },
+                    {
+                        label: '亞太市場',
+                        data: [35, 38, 42, 46, 50],
+                        borderColor: 'rgb(16, 185, 129)', // 鮮明的綠色
+                        backgroundColor: 'rgba(16, 185, 129, 0.4)',
+                        fill: false,
+                        tension: 0,
+                        pointRadius: 5,
+                        pointHoverRadius: 8
+                    }
+                ]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: 'rgb(120, 53, 15)', // 深黃色文字
+                            }
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: 'rgb(120, 53, 15)' },
+                            grid: { color: 'rgba(251, 191, 36, 0.2)' } // 淺黃色格線
+                        },
+                        y: {
+                            ticks: { color: 'rgb(120, 53, 15)' },
+                            grid: { color: 'rgba(251, 191, 36, 0.2)' }
+                        }
+                    }
+                }
+            };
+            marketChartInstance = new Chart(ctx, config);
+        }
+
+        /**
+         * Toggles the visibility of an accordion content panel and rotates its triangle icon.
+         * This function now automatically collapses any other open panels and handles the chart creation.
+         * @param {string} contentId The ID of the content div to show/hide.
+         * @param {string} iconId The ID of the SVG triangle icon element to rotate.
+         */
+        function toggleAccordion(contentId, iconId) {
+            const allContents = document.querySelectorAll('#accordion-container > div > div');
+            const allIcons = document.querySelectorAll('#accordion-container svg.toggle-icon');
+            
+            allContents.forEach(content => {
+                if (content.id !== contentId && !content.classList.contains('hidden')) {
+                    content.classList.add('hidden');
+                }
+            });
+
+            allIcons.forEach(icon => {
+                if (icon.id !== iconId) {
+                    icon.classList.remove('rotate');
+                }
+            });
+
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+            
+            // Toggle the visibility of the clicked content
+            content.classList.toggle('hidden');
+            
+            // Toggle the rotation of the clicked icon
+            icon.classList.toggle('rotate');
+
+            // If the market analysis section is opened and the chart hasn't been created yet, create it.
+            // Also, check if the content is being shown, not hidden.
+            if (contentId === 'market-analysis-content' && !content.classList.contains('hidden')) {
+                createMarketChart('market-chart');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
